@@ -69,6 +69,7 @@ public class Main {
                         aSpeaker=new Speaker();
                         System.out.println("Enter the speaker of the event");
                         aSpeaker.setName(reader.nextLine());
+
                         int j =0;
                         Event tempEvent = new Event();
                         //Speaker tempSpeaker = new Speaker();
@@ -130,9 +131,16 @@ public class Main {
             ///////////////////////////////
 
             else if (choice == 3){
+
                 for (Event eachEvent : events
                         ) {
-                    System.out.println("All speakers for all events are " + eachEvent.getSpeakers());
+                    System.out.println("my events ar :" +eachEvent.getTitle());
+                    if(!eachEvent.getSpeakers().isEmpty()) {
+                        for (Speaker eachSpeaker : eachEvent.getSpeakers()) {
+                            System.out.println("All speakers for all events are " + eachSpeaker.getName());
+                        }
+                    }
+                    else System.out.println("No speakers for this event");
 
                 }
         }

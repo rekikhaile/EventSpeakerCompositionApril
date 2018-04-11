@@ -30,7 +30,6 @@ public class Main {
             choice=reader.nextInt();
             reader.nextLine();
 
-
             if (choice == 1) {
 
                 do {
@@ -70,42 +69,33 @@ public class Main {
                         System.out.println("Enter the speaker of the event");
                         aSpeaker.setName(reader.nextLine());
 
-                        int j =0;
+                        for (Event thisEvent:events) {
+                            if (thisEvent.getTitle().equalsIgnoreCase(eventName)){
+                                thisEvent.addSpeaker(aSpeaker);
+                            }
+
+
+                            /*for (Speaker speakeri : thisEvent.getSpeakers()){
+                                System.out.printf(speakeri.getName());
+                            }*/
+                        }
+
+
+
+                        /*int j =0;
                         Event tempEvent = new Event();
-                        //Speaker tempSpeaker = new Speaker();
 
-
-                        if(!events.isEmpty()) {
                             for (Event eachEvent :
                                     events) {
                                if (eachEvent.getTitle().equalsIgnoreCase(eventName)) {
-                                   tempEvent.setTitle(eachEvent.getTitle());
-                                   tempEvent.setStartDate(eachEvent.getStartDate());
-                                   tempEvent.setEndDate(eachEvent.getEndDate());
-                                    tempEvent.addSpeaker(aSpeaker);
+
                                     j=events.indexOf(eachEvent);
                                 }
+                                events.set(j, tempEvent);
+
+                              */
 
 
-                                System.out.println(eachEvent.getTitle());
-                            }
-                            events.set(j, tempEvent);
-                        }
-                        else System.out.println("No events");
-
-                        //imprtant step
-
-
-
-//                        for (int i=0; i < events.size(); i++) {
-//
-//                            if (events.get(i).getTitle().equalsIgnoreCase(eventName)) {
-//                                System.out.println("hi "+events.get(i).getTitle());
-//                                //           events.get(i).addSpeaker(aSpeaker);
-//                                newEvent = events.get(i);
-//                                newEvent.addSpeaker(aSpeaker);
-//                            }
-//                        }
 
                         System.out.println("Do you want to add another speaker?");
                         speakerAnswer=reader.nextLine();
@@ -134,10 +124,10 @@ public class Main {
 
                 for (Event eachEvent : events
                         ) {
-                    System.out.println("my events ar :" +eachEvent.getTitle());
+                   System.out.println("Event :" +eachEvent.getTitle());
                     if(!eachEvent.getSpeakers().isEmpty()) {
                         for (Speaker eachSpeaker : eachEvent.getSpeakers()) {
-                            System.out.println("All speakers for all events are " + eachSpeaker.getName());
+                            System.out.println("Speaker: " + eachSpeaker.getName());
                         }
                     }
                     else System.out.println("No speakers for this event");
@@ -159,17 +149,23 @@ public class Main {
                         }
                     }*/
 
+                if(!events.isEmpty()) {
+                    for (Event eachEvent : events) {
 
+                        if (eachEvent.getTitle().equalsIgnoreCase(eventName)) {
+                            //k = events.indexOf(eachEvent);
+                            //System.out.println(eachEvent.getTitle());
+                            System.out.println("The speakers for " + eachEvent.getTitle() + " are: ");
+                            if(!eachEvent.getSpeakers().isEmpty()) {
+                                for (Speaker eachSpeak : eachEvent.getSpeakers()) {
 
-                for (Event eachEvent : events) {
-                    if (eachEvent.getTitle().equalsIgnoreCase(eventName)) {
-                        k = events.indexOf(eachEvent);
-                        System.out.println(eachEvent.getTitle());
-                        for (Speaker eachSpeak: eachEvent.getSpeakers()) {
-                            System.out.println("Each speaker hhdhfhd "+eachSpeak.getName());
+                                    System.out.println(eachSpeak.getName());
+                                }
+                            }
+                            else System.out.println("This event has no speakers");
                         }
                     }
-                    }
+                }else System.out.println("there are no events");
                     //events.set(k, tempEvent);
                 }
 
@@ -183,19 +179,6 @@ public class Main {
 
 
         }while(menuDone);
-
-
-        for (Event everyEvent: events
-             ) {
-            System.out.println("Hiiiii lowww"+ everyEvent.getTitle());
-            if(everyEvent.getSpeakers()!=null) {
-                for (Speaker everySpeaker :
-                        everyEvent.getSpeakers()) {
-                    System.out.println("Speakers " + everySpeaker.getName());
-                }
-            }
-            else System.out.println("No speakers fot this event1");
-        }
 
 
 

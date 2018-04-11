@@ -10,7 +10,7 @@ public class Event {
     private ArrayList<Speaker> speakers;
 
     public void addSpeaker(Speaker speaker){
-        this.speakers.add(speaker);
+        speakers.add(speaker);
     }
 
     public Event() {
@@ -19,6 +19,7 @@ public class Event {
 
     public Event(String title) {
         this.title=title;
+        speakers = new ArrayList<>();
     }
 
     public Event(String title, String startDate) {

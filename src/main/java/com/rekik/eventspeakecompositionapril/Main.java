@@ -91,11 +91,16 @@ public class Main {
                     for (Event eachEvent : events
                             ) {
                         endDate = LocalDate.parse(eachEvent.getEndDate(),dTF);
+                        System.out.println("My event's date");
                         System.out.println(endDate.format(longFormat));
+
+                        System.out.println("The date you have entered");
+                        System.out.println(anyDay.format(longFormat));
 
                         System.out.println(endDate.format(dTF).compareTo(anyDay.format(dTF)));
 
-                        if(endDate.format(dTF).compareTo(anyDay.format(dTF)) > 0){
+                        //if(endDate.format(dTF).compareTo(anyDay.format(dTF)) > 0){ // this was giving me errors in result
+                            if(endDate.compareTo(anyDay) > 0){
 
                             //System.out.println("Added to the upcoming events");
                             upcomingEvents.add(eachEvent);
